@@ -1,0 +1,130 @@
+@use '@/styles/variables' as *;
+
+.serviceSection {
+  padding: 100px 0;
+  margin-top: 150px;
+  background-image: url('@assets/img/service/service-bg.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+.serviceContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @media (min-width: 576px) {
+    max-width: 540px;
+  }
+
+  @media (min-width: 768px) {
+    max-width: 720px;
+  }
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    max-width: 1140px;
+  }
+}
+
+.serviceTitleWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-xl);
+}
+
+.serviceTitleContent {
+  max-width: 600px;
+  text-align: center;
+}
+
+.sectionTitle {
+  h1 {
+    font-size: 42px;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-md);
+  }
+
+  p {
+    font-size: 18px;
+    color: var(--text-color);
+  }
+}
+
+.servicesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (min-width: $breakpoint-l) {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.singleService {
+  text-align: center;
+  padding: 40px var(--spacing-lg);
+  background: var(--white);
+  border-radius: 10px;
+  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+  transition: var(--transition);
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+  }
+}
+
+.serviceIcon {
+  width: 70px;
+  height: 70px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin: 0 auto 25px;
+  font-size: 32px;
+
+  &.iconColor1 {
+    background-color: #667eea;
+    color: var(--white);
+  }
+
+  &.iconColor2 {
+    background-color: #f093fb;
+    color: var(--white);
+  }
+
+  &.iconColor3 {
+    background-color: #4facfe;
+    color: var(--white);
+  }
+
+  &.iconColor4 {
+    background-color: #43e97b;
+    color: var(--white);
+  }
+}
+
+.serviceContent {
+  h4 {
+    font-size: 22px;
+    color: var(--secondary-color);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  p {
+    font-size: 16px;
+    color: var(--text-color);
+    line-height: 1.6;
+  }
+}

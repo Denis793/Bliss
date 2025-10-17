@@ -1,0 +1,115 @@
+@use '@/styles/variables.scss' as *;
+
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background: var(--white);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  transition: opacity 0.5s ease-in-out;
+
+  &.hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.spinner-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.spinner-rotator {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  animation: spinner-rotate 1s linear infinite;
+}
+
+.spinner-left,
+.spinner-right {
+  position: absolute;
+  top: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.spinner-left {
+  left: 0;
+}
+
+.spinner-right {
+  right: 0;
+}
+
+.spinner-circle {
+  position: absolute;
+  top: 0;
+  width: 200%;
+  height: 100%;
+  border-radius: 50px;
+  border: 3px solid transparent;
+  border-top-color: var(--primary-color);
+  border-bottom-color: var(--primary-color);
+}
+
+.spinner-left .spinner-circle {
+  left: 0;
+  right: -100%;
+  animation: spinner-left 1s ease-in-out infinite;
+}
+
+.spinner-right .spinner-circle {
+  left: -100%;
+  right: 0;
+  animation: spinner-right 1s ease-in-out infinite;
+}
+
+@keyframes spinner-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes spinner-left {
+  0%,
+  50% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(180deg);
+  }
+}
+
+@keyframes spinner-right {
+  0% {
+    transform: rotate(0deg);
+  }
+  50%,
+  100% {
+    transform: rotate(180deg);
+  }
+}
