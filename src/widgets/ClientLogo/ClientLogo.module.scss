@@ -1,6 +1,7 @@
 @use '@/shared/styles/variables' as *;
 
 .brandsSection {
+  padding: var(--spacing-3xl);
   overflow: hidden;
 }
 

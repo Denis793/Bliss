@@ -2,12 +2,13 @@
 @use '@/shared/styles/mixins' as *;
 
 .heroSection {
+  background: url('@/assets/img/hero/hero-bg.jpg');
   padding: var(--spacing-3xl) 0 var(--spacing-2xl);
   position: relative;
   overflow: hidden;
 
   @media (min-width: $breakpoint-m) {
-    padding: var(--spacing-4xl) 0 100px;
+    padding: var(--spacing-4xl) 0;
   }
 
   @media (min-width: $breakpoint-l) {
@@ -24,7 +25,6 @@
 
   @media (min-width: $breakpoint-m) {
     flex-direction: row;
-    flex-wrap: wrap;
     text-align: left;
     gap: var(--spacing-2xl);
   }
@@ -66,8 +66,8 @@
 }
 
 .heroImage {
-  width: 100%;
-  height: auto;
+  width: auto;
+  height: 100%;
   display: block;
 }
 
