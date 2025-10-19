@@ -1,0 +1,79 @@
+@use '@/shared/styles/variables' as *;
+@use '@/shared/styles/animations' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--ff-secondary);
+  font-weight: normal;
+  font-style: normal;
+  color: var(--text-color);
+  overflow-x: hidden;
+  line-height: 1.6;
+}
+
+a {
+  transition: var(--transition-base);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-color);
+    text-decoration: none;
+  }
+
+  &:focus {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+  }
+}
+
+i,
+span,
+a {
+  display: inline-block;
+}
+
+audio,
+canvas,
+iframe,
+img,
+svg,
+video {
+  vertical-align: middle;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--ff-main);
+  font-weight: 700;
+  margin: 0;
+  color: var(--text-color-default);
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-color-description);
+}
+
+input,
+textarea,
+button {
+  &:focus {
+    text-decoration: none;
+    outline: none;
+    box-shadow: none;
+  }
+}

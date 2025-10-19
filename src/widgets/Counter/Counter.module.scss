@@ -1,0 +1,162 @@
+@use '@/shared/styles/variables' as *;
+
+.counterUpSection {
+  padding-top: 150px;
+}
+
+.counterContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    max-width: 1140px;
+  }
+}
+
+.counterLayout {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-xl);
+
+  @media (max-width: 839px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.counterContent {
+  flex: 1;
+  min-width: 0;
+
+  @media (min-width: $breakpoint-m) {
+    flex: 0 0 50%;
+  }
+}
+
+.counterImageWrapper {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+
+  @media (min-width: $breakpoint-m) {
+    flex: 0 0 50%;
+  }
+}
+
+.counterImage {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  display: block;
+}
+
+.sectionTitle {
+  margin-bottom: 40px;
+
+  h1 {
+    font-size: 36px;
+    line-height: 1.2;
+    color: var(--text-color-default);
+    margin-bottom: var(--spacing-md);
+    @media (min-width: $breakpoint-m) {
+      font-size: 48px;
+    }
+
+    &.fadeInUp {
+      animation: fadeInUp 1s ease-out 0.2s both;
+    }
+  }
+
+  p {
+    font-size: 18px;
+    line-height: 1.7;
+    color: var(--text-color);
+
+    &.fadeInUp {
+      animation: fadeInUp 1s ease-out 0.4s both;
+    }
+  }
+}
+
+.counterWrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+
+  @media (min-width: $breakpoint-m) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.singleCounter {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-md) 0;
+}
+
+.counterIcon {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  margin-right: var(--spacing-md);
+  font-size: 24px;
+  flex-shrink: 0;
+
+  &.iconColor1 {
+    background-color: #667eea;
+    color: var(--white);
+  }
+
+  &.iconColor2 {
+    background-color: #f093fb;
+    color: var(--white);
+  }
+
+  &.iconColor3 {
+    background-color: #4facfe;
+    color: var(--white);
+  }
+
+  &.iconColor4 {
+    background-color: #43e97b;
+    color: var(--white);
+  }
+}
+
+.counterContent {
+  h1 {
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--text-color-default);
+    margin: 0 0 5px 0;
+    line-height: 1;
+  }
+
+  span {
+    font-size: 16px;
+    color: var(--text-color);
+    font-weight: 500;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

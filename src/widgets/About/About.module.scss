@@ -1,0 +1,90 @@
+@use '@/shared/styles/variables' as *;
+
+.aboutSection {
+  padding-top: 150px;
+}
+
+.aboutContainer {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    max-width: 1140px;
+  }
+}
+
+.aboutLayout {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xl);
+
+  @media (max-width: 839px) {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+.aboutImageWrapper {
+  flex: 1;
+  min-width: 0;
+
+  @media (min-width: $breakpoint-m) {
+    flex: 0 0 50%;
+  }
+}
+
+.aboutImage {
+  width: 100%;
+  height: auto;
+  max-width: 500px;
+  display: block;
+}
+
+.aboutContent {
+  flex: 1;
+  min-width: 0;
+
+  @media (min-width: $breakpoint-m) {
+    flex: 0 0 50%;
+  }
+}
+
+.accordion {
+  padding-bottom: var(--spacing-sm);
+}
+
+.singleFaq {
+  margin-bottom: var(--spacing-sm);
+  border: 1px solid rgba(49, 52, 80, 0.1);
+  border-radius: var(--spacing-xs);
+  overflow: hidden;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+}
+
+.faqContent {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height var(--transition-base);
+  background-color: rgba(49, 52, 80, 0.02);
+
+  &.show {
+    max-height: 200px;
+    padding: var(--spacing-md) 25px;
+  }
+
+  p {
+    margin: 0;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--text-color);
+  }
+}

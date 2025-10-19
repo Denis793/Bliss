@@ -1,0 +1,38 @@
+@use '@/styles/variables' as *;
+
+.faqButton {
+  width: 100%;
+  text-align: left;
+  background: none;
+  border: none;
+  padding: 20px 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid #e5e5e5;
+  position: relative;
+
+  &:hover {
+    color: var(--primary-color);
+  }
+
+  &.active {
+    color: var(--primary-color);
+  }
+
+  &::after {
+    content: '+';
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+    transition: transform 0.3s ease;
+  }
+
+  &.active::after {
+    transform: translateY(-50%) rotate(45deg);
+  }
+}
