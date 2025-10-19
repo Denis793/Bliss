@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from 'react';
+import { Button } from '@/shared/ui/Button';
 import styles from './CTA.module.scss';
 
 export const CTA = () => {
@@ -28,7 +29,7 @@ export const CTA = () => {
 
   return (
     <section ref={sectionRef} className={styles.ctaSection}>
-      <div className={styles.ctaContainer}>
+      <div className="container">
         <div className={styles.ctaLayout}>
           <div className={styles.ctaContent}>
             <div className={styles.sectionTitle}>
@@ -39,9 +40,9 @@ export const CTA = () => {
             </div>
           </div>
           <div className={styles.ctaButtonWrapper}>
-            <a href="#" onClick={(e) => e.preventDefault()} className={`main-btn btn-hover ${styles.ctaButton}`}>
+            <Button href="#" onClick={(e) => e.preventDefault()} className={styles.ctaButton} variant="primary">
               LET'S START YOUR PROJECT
-            </a>
+            </Button>
           </div>
         </div>
       </div>

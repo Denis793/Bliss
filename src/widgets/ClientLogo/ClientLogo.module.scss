@@ -1,53 +1,49 @@
 @use '@/shared/styles/variables' as *;
 
-.clientLogoSection {
-  padding-top: 150px;
-
-  @media (max-width: 839px) {
-    padding-top: 100px;
-  }
+.brandsSection {
+  overflow: hidden;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
-}
-
-.row {
+.sliderTrack {
   display: flex;
-  flex-wrap: wrap;
-  margin: 0 -15px;
+  width: max-content;
+  animation: scroll-left 10s linear infinite;
 }
 
-.logoCol {
-  width: 100%;
-  padding: 0 15px;
-  margin-bottom: 30px;
+.singleBrands {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--spacing-m) var(--spacing-l);
+  min-width: 18rem;
 
   @media (min-width: $breakpoint-m) {
-    width: 25%;
-    margin-bottom: 0;
+    min-width: 20rem;
+    padding: var(--spacing-l) var(--spacing-xl);
   }
-}
 
-.singleLogo {
-  text-align: center;
-  padding: 20px;
-  transition: all 0.3s ease-out 0s;
-
-  &:hover {
-    transform: translateY(-5px);
+  @media (min-width: $breakpoint-l) {
+    min-width: 25rem;
+    padding: var(--spacing-l) var(--spacing-2xl);
   }
 
   img {
-    max-width: 140px;
+    max-width: 100%;
+    max-height: 4rem;
     height: auto;
-    opacity: 0.7;
-    transition: opacity 0.3s ease-out 0s;
+    transition: var(--transition-fast);
 
-    &:hover {
-      opacity: 1;
+    @media (min-width: $breakpoint-m) {
+      max-height: 5rem;
     }
+  }
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
   }
 }

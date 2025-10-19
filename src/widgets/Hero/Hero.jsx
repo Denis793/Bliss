@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Button } from '@/shared/ui/Button';
 import clsx from 'clsx';
 import styles from './Hero.module.scss';
 import heroImgSrc from '@/assets/img/hero/hero-img.svg';
@@ -16,27 +17,28 @@ export const Hero = () => {
 
   return (
     <section id="home" className={styles.heroSection}>
-      <div className={styles.heroContainer}>
+      <div className="container">
         <div className={styles.heroLayout}>
           <div className={styles.heroContent}>
-            <span className={clsx(styles.welcomeText, isVisible && styles.fadeInLeft)}>Welcome To Bliss</span>
-            <h1 className={clsx(styles.heroTitle, isVisible && styles.fadeInUp)}>
+            <span className={clsx(styles.welcomeText, isVisible && 'fadeInLeft')}>Welcome To Bliss</span>
+            <h1 className={clsx(styles.heroTitle, isVisible && 'fadeInUp')}>
               You are using free lite version of Bliss.
             </h1>
-            <p className={clsx(styles.heroDescription, isVisible && styles.fadeInUp)}>
+            <p className={clsx(isVisible && 'fadeInUp')}>
               Please, purchase full version of the template to get all sections, elements and permission to remove
               footer credits.
             </p>
-            <a
+            <Button
               href="#"
               onClick={(e) => e.preventDefault()}
-              className={clsx('main-btn', 'btn-hover', styles.heroBtn, isVisible && styles.fadeInUp)}
+              className={clsx(styles.heroBtn, isVisible && 'fadeInUp')}
+              variant="primary"
             >
               Buy Now
-            </a>
+            </Button>
           </div>
           <div className={styles.heroImageWrapper}>
-            <div className={clsx(styles.heroImageContent, isVisible && styles.fadeInUp)}>
+            <div className={clsx(styles.heroImageContent, isVisible && 'fadeInUp')}>
               <img src={heroImgSrc} alt="Hero" className={styles.heroImage} />
             </div>
           </div>

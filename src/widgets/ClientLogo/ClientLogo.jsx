@@ -1,32 +1,32 @@
+import BrandGrays from '@/assets/img/client-logo/graygrids.svg';
+import BrandLine from '@/assets/img/client-logo/lineicons.svg';
+import BrandUiDeck from '@/assets/img/client-logo/uideck.svg';
+import BrandPageBulb from '@/assets/img/client-logo/pagebulb.svg';
 import styles from './ClientLogo.module.scss';
-import lineiconsLogo from '@/assets/img/client-logo/lineicons.svg';
-import uideckLogo from '@/assets/img/client-logo/uideck.svg';
-import pagebulbLogo from '@/assets/img/client-logo/pagebulb.svg';
-import graygridsLogo from '@/assets/img/client-logo/graygrids.svg';
+
+const brandsList = [
+  { src: BrandGrays, alt: 'GrayGrids Logo' },
+  { src: BrandLine, alt: 'LineIcons Logo' },
+  { src: BrandUiDeck, alt: 'UiDeck Logo' },
+  { src: BrandPageBulb, alt: 'PageBulb Logo' },
+];
 
 export const ClientLogo = () => {
-  const logos = [
-    { src: lineiconsLogo, alt: 'LineIcons' },
-    { src: uideckLogo, alt: 'UIdeck' },
-    { src: pagebulbLogo, alt: 'PageBulb' },
-    { src: graygridsLogo, alt: 'GrayGrids' },
-  ];
+  const animatedBrandsList = [...brandsList, ...brandsList];
 
   return (
-    <>
-      <section className={styles.clientLogoSection}>
-        <div className={styles.container}>
-          <div className={styles.row}>
-            {logos.map((logo, index) => (
-              <div key={index} className={styles.logoCol}>
-                <div className={styles.singleLogo}>
-                  <img src={logo.src} alt={logo.alt} />
-                </div>
+    <section className={styles.brandsSection}>
+      <div className="container">
+        <div className={styles.sliderTrackWrapper}>
+          <div className={styles.sliderTrack}>
+            {animatedBrandsList.map((brand, index) => (
+              <div key={index} className={styles.singleBrands}>
+                <img src={brand.src} alt={brand.alt} />
               </div>
             ))}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 };

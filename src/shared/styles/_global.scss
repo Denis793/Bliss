@@ -1,5 +1,4 @@
 @use '@/shared/styles/variables' as *;
-@use '@/shared/styles/animations' as *;
 
 * {
   margin: 0;
@@ -59,7 +58,6 @@ h5,
 h6 {
   font-family: var(--ff-main);
   font-weight: 700;
-  margin: 0;
   color: var(--text-color-default);
 }
 
@@ -75,5 +73,20 @@ button {
     text-decoration: none;
     outline: none;
     box-shadow: none;
+  }
+}
+
+.container {
+  width: 100%;
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding: 0 var(--spacing-l);
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    max-width: var(--container-max-width);
   }
 }

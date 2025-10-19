@@ -1,0 +1,38 @@
+@use '@/shared/styles/variables' as *;
+
+.navLink {
+  display: block;
+  font-size: var(--fs-nav-laptop);
+  font-weight: var(--fw-medium);
+  color: var(--text-color-default);
+  text-decoration: none;
+  transition: var(--transition-fast);
+  position: relative;
+  padding: var(--spacing-s) 0;
+
+  @media (min-width: $breakpoint-l) {
+    font-size: var(--fs-nav-desktop);
+  }
+
+  &:hover,
+  &.active {
+    color: var(--primary-color);
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 50%;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: var(--transition-fast);
+    transform: translateX(-50%);
+  }
+
+  &:hover::before,
+  &.active::before {
+    width: 100%;
+  }
+}

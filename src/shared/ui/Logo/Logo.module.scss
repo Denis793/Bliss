@@ -1,0 +1,15 @@
+@use '@/shared/styles/variables' as *;
+
+.logo {
+  display: inline-block;
+}
+
+.logoImage {
+  max-height: 45px;
+  width: auto;
+  display: block;
+
+  @media (min-width: $breakpoint-m) {
+    max-height: var(--header-logo-height);
+  }
+}

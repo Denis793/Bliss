@@ -1,69 +1,82 @@
 @use '@/shared/styles/variables' as *;
+@use '@/shared/styles/mixins' as *;
 
 .aboutSection {
-  padding-top: 150px;
-}
-
-.aboutContainer {
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+  padding: var(--spacing-2xl) 0;
 
   @media (min-width: $breakpoint-m) {
-    max-width: 960px;
+    padding: var(--spacing-3xl) 0;
   }
 
   @media (min-width: $breakpoint-l) {
-    max-width: 1140px;
+    padding: var(--spacing-4xl) 0;
   }
 }
 
 .aboutLayout {
   display: flex;
-  flex-wrap: wrap;
+  flex-direction: column;
   gap: var(--spacing-xl);
+  text-align: center;
 
-  @media (max-width: 839px) {
-    flex-direction: column;
-    text-align: center;
+  @media (min-width: $breakpoint-m) {
+    flex-direction: row;
+    flex-wrap: wrap;
+    text-align: left;
+    gap: var(--spacing-2xl);
   }
 }
 
 .aboutImageWrapper {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
+  order: 1;
+  display: flex;
+  justify-content: center;
 
   @media (min-width: $breakpoint-m) {
     flex: 0 0 50%;
+    order: 1;
   }
 }
 
 .aboutImage {
   width: 100%;
   height: auto;
-  max-width: 500px;
+  max-width: 280px;
   display: block;
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 400px;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    max-width: 500px;
+  }
 }
 
 .aboutContent {
-  flex: 1;
-  min-width: 0;
+  width: 100%;
+  order: 2;
 
   @media (min-width: $breakpoint-m) {
     flex: 0 0 50%;
+    order: 2;
   }
 }
 
 .accordion {
-  padding-bottom: var(--spacing-sm);
+  padding-bottom: var(--spacing-m);
 }
 
 .singleFaq {
-  margin-bottom: var(--spacing-sm);
-  border: 1px solid rgba(49, 52, 80, 0.1);
-  border-radius: var(--spacing-xs);
+  margin-bottom: var(--spacing-s);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-s);
   overflow: hidden;
+
+  @media (min-width: $breakpoint-m) {
+    margin-bottom: var(--spacing-m);
+  }
 
   &:last-child {
     margin-bottom: 0;
@@ -73,18 +86,28 @@
 .faqContent {
   max-height: 0;
   overflow: hidden;
-  transition: max-height var(--transition-base);
+  transition: max-height var(--transition-fast);
   background-color: rgba(49, 52, 80, 0.02);
 
   &.show {
-    max-height: 200px;
-    padding: var(--spacing-md) 25px;
+    max-height: 300px;
+    padding: var(--spacing-m) var(--spacing-l);
+
+    @media (min-width: $breakpoint-m) {
+      max-height: 200px;
+      padding: var(--spacing-l) 25px;
+    }
   }
 
   p {
     margin: 0;
-    font-size: 16px;
-    line-height: 1.6;
-    color: var(--text-color);
+    font-size: var(--fs-description);
+    line-height: 1.5;
+    color: var(--text-color-description);
+
+    @media (min-width: $breakpoint-m) {
+      font-size: var(--fs-base);
+      line-height: 1.6;
+    }
   }
 }

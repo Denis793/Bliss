@@ -1,0 +1,49 @@
+@use '@/shared/styles/variables' as *;
+
+@mixin container($max-width: var(--container-max-width)) {
+  width: 100%;
+  max-width: $max-width;
+  margin: 0 auto;
+  padding: 0 var(--spacing-l);
+
+  @media (min-width: $breakpoint-m) {
+    max-width: 960px;
+  }
+
+  @media (min-width: $breakpoint-l) {
+    max-width: $max-width;
+  }
+}
+
+@mixin section($padding-top: var(--spacing-4xl), $padding-bottom: var(--spacing-4xl)) {
+  padding: $padding-top 0 $padding-bottom;
+}
+
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin responsive-flex($mobile-direction: column, $desktop-direction: row) {
+  display: flex;
+  flex-direction: $mobile-direction;
+
+  @media (min-width: $breakpoint-m) {
+    flex-direction: $desktop-direction;
+  }
+}
+
+@mixin button-hover {
+  transition: var(--transition-fast);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-main);
+  }
+}
+
+@mixin fade-in-animation($animation-name: fadeInUp, $delay: 0s) {
+  opacity: 0;
+  animation: $animation-name 0.6s ease-out $delay forwards;
+}

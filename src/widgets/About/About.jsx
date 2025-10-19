@@ -2,6 +2,7 @@ import { useState } from 'react';
 import clsx from 'clsx';
 import { accordionData } from '@/shared/data/accordionData';
 import { Button } from '@/shared/ui/Button';
+import { AccordionButton } from '@/shared/ui/AccordionButton';
 import aboutImgSrc from '@/assets/img/about/about-img.svg';
 import styles from './About.module.scss';
 
@@ -10,7 +11,7 @@ export const About = () => {
 
   return (
     <section id="about" className={styles.aboutSection}>
-      <div className={styles.aboutContainer}>
+      <div className="container">
         <div className={styles.aboutLayout}>
           <div className={styles.aboutImageWrapper}>
             <img src={aboutImgSrc} alt="About" className={styles.aboutImage} />
@@ -26,7 +27,7 @@ export const About = () => {
             <div className={styles.accordion}>
               {accordionData.map((item, index) => (
                 <div key={index} className={styles.singleFaq}>
-                  <Button
+                  <AccordionButton
                     item={item}
                     index={index}
                     activeAccordion={activeAccordion}
@@ -38,9 +39,9 @@ export const About = () => {
                 </div>
               ))}
             </div>
-            <a href="#" onClick={(e) => e.preventDefault()} className="main-btn btn-hover">
+            <Button href="#" onClick={(e) => e.preventDefault()} variant="primary">
               View More
-            </a>
+            </Button>
           </div>
         </div>
       </div>

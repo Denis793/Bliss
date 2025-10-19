@@ -1,38 +1,24 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
+import clsx from 'clsx';
+import { Logo } from '@/shared/ui/Logo';
+import { NavLink } from '@/shared/ui/NavLink';
+import { MobileMenu } from '@/shared/ui/MobileMenu';
+import { menuItems } from '@/shared/data/headerMenuData';
+import { useHeaderScroll } from '@/shared/hooks/useHeaderScroll';
 import styles from './Header.module.scss';
-import logoSrc from '@/assets/img/logo/logo.svg';
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isSticky, setIsSticky] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
 
-  useEffect(() => {
-    const handleScroll = () => {
-      const offset = window.scrollY;
-      setIsSticky(offset > 100);
+  const { scrolled } = useHeaderScroll(80);
 
-      const sections = ['home', 'about', 'service'];
-      const current = sections.find((section) => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom > 100;
-        }
-        return false;
-      });
-
-      if (current) {
-        setActiveSection(current);
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  const handleMenuToggle = () => {
+  const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const closeMenu = () => {
+    setIsMenuOpen(false);
   };
 
   const handleNavClick = (sectionId) => {
@@ -40,61 +26,50 @@ export const Header = () => {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-    setIsMenuOpen(false);
     setActiveSection(sectionId);
+    closeMenu();
   };
 
-  const menuItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'service', label: 'Services' },
-    { id: 'portfolio', label: 'Portfolio' },
-    { id: 'pricing', label: 'Pricing' },
-    { id: 'team', label: 'Team' },
-    { id: 'contact', label: 'Contact' },
-  ];
+  const headerClasses = clsx(styles.header, scrolled && styles.headerScrolled);
 
   return (
-    <header className={`${styles.headerWrapper} ${isSticky ? styles.headerSticky : ''}`}>
-      <div className={styles.headerContainer}>
-        <nav className={styles.headerNavigation}>
-          <a href="#" className={styles.headerLogo}>
-            <img src={logoSrc} alt="Logo" className={styles.headerLogoImage} />
-          </a>
+    <>
+      <header className={headerClasses}>
+        <div className="container">
+          <nav className={styles.navbar}>
+            <Logo href="#home" />
 
-          <button
-            className={`${styles.headerToggle} ${isMenuOpen ? styles.headerToggleActive : ''}`}
-            type="button"
-            onClick={handleMenuToggle}
-            aria-label="Toggle navigation"
-          >
-            <span className={styles.headerToggleLine}></span>
-            <span className={styles.headerToggleLine}></span>
-            <span className={styles.headerToggleLine}></span>
-          </button>
+            <MobileMenu
+              isMenuOpen={isMenuOpen}
+              toggleMenu={toggleMenu}
+              closeMenu={closeMenu}
+              menuItems={menuItems.map((item) => ({
+                ...item,
+                isActive: activeSection === item.id,
+              }))}
+            />
 
-          <div className={`${styles.headerMenu} ${isMenuOpen ? styles.headerMenuOpen : ''}`}>
-            <ul className={styles.headerMenuList}>
-              {menuItems.map((item) => (
-                <li key={item.id} className={styles.headerMenuItem}>
-                  <a
-                    href={`#${item.id}`}
-                    className={`${styles.headerMenuLink} ${
-                      activeSection === item.id ? styles.headerMenuLinkActive : ''
-                    }`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      handleNavClick(item.id);
-                    }}
-                  >
-                    {item.label}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
+            <div className={styles.menuBarDesktop}>
+              <ul className={styles.navbarNavDesktop}>
+                {menuItems.map((item) => (
+                  <li key={item.id} className={styles.navItemDesktop}>
+                    <NavLink
+                      href={`#${item.id}`}
+                      isActive={activeSection === item.id}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        handleNavClick(item.id);
+                      }}
+                    >
+                      {item.label}
+                    </NavLink>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+    </>
   );
 };

@@ -33,7 +33,7 @@ export const Footer = () => {
   return (
     <>
       <footer className={styles.footer}>
-        <div className={styles.container}>
+        <div className="container">
           <div className={styles.widgetWrapper}>
             <div className={`${styles.footerWidget} ${styles.logoWidget}`}>
               <div className={styles.logo}>

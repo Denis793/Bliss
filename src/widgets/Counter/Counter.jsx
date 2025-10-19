@@ -39,7 +39,7 @@ export const Counter = () => {
 
   return (
     <section ref={sectionRef} className={styles.counterUpSection}>
-      <div className={styles.counterContainer}>
+      <div className="container">
         <div className={styles.counterLayout}>
           <div className={styles.counterContent}>
             <div className={styles.sectionTitle}>

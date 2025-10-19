@@ -30,7 +30,7 @@ export const Services = () => {
 
   return (
     <section id="service" className={styles.serviceSection}>
-      <div className={styles.serviceContainer}>
+      <div className="container">
         <div className={styles.serviceTitleWrapper}>
           <div className={styles.serviceTitleContent}>
             <div className={styles.sectionTitle}>

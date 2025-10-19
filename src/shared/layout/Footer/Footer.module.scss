@@ -2,62 +2,91 @@
 
 .footer {
   background-color: var(--text-color-default);
-  padding: 80px 0 0;
-}
+  padding: var(--spacing-2xl) 0 0;
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 15px;
+  @media (min-width: $breakpoint-m) {
+    padding: var(--spacing-3xl) 0 0;
+  }
 }
 
 .row {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -15px;
+  margin: 0 calc(-1 * var(--spacing-m));
+
+  @media (min-width: $breakpoint-m) {
+    margin: 0 calc(-1 * var(--spacing-l));
+  }
 }
 
 .widgetWrapper {
   display: flex;
   flex-wrap: wrap;
-  margin: 0 -15px 50px;
+  margin: 0 calc(-1 * var(--spacing-m)) var(--spacing-2xl);
+
+  @media (min-width: $breakpoint-m) {
+    margin: 0 calc(-1 * var(--spacing-l)) var(--spacing-3xl);
+  }
 }
 
 .footerWidget {
   width: 100%;
-  padding: 0 15px;
-  margin-bottom: 40px;
-
-  @media (min-width: $breakpoint-l) {
-    margin-bottom: 0;
-  }
+  padding: 0 var(--spacing-m);
+  margin-bottom: var(--spacing-xl);
 
   &.logoWidget {
-    @media (min-width: $breakpoint-l) {
-      width: 25%;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  // Tablet styles
+  @media (min-width: $breakpoint-m) {
+    width: 50%;
+    padding: 0 var(--spacing-l);
+    margin-bottom: var(--spacing-2xl);
+
+    &.logoWidget {
+      width: 100%;
+      margin-bottom: var(--spacing-2xl);
     }
   }
 
   @media (min-width: $breakpoint-l) {
     width: 16.666667%;
     margin-left: 8.333333%;
+    margin-bottom: 0;
+
+    &.logoWidget {
+      width: 25%;
+      margin-left: 0;
+      margin-bottom: 0;
+    }
   }
 }
 
 .logo {
-  margin-bottom: 35px;
+  margin-bottom: var(--spacing-xl);
 
   img {
-    max-height: 45px;
+    max-height: 40px;
     width: auto;
+
+    @media (min-width: $breakpoint-m) {
+      max-height: 45px;
+    }
   }
 }
 
 .desc {
-  font-size: 16px;
-  line-height: 1.7;
-  color: rgba(var(--white), 0.8);
-  margin-bottom: 35px;
+  font-size: var(--fs-description);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--spacing-xl);
+
+  @media (min-width: $breakpoint-m) {
+    font-size: var(--fs-base);
+    line-height: 1.7;
+    margin-bottom: 35px;
+  }
 }
 
 .socials {
@@ -65,20 +94,32 @@
   list-style: none;
   margin: 0;
   padding: 0;
-  gap: 10px;
+  gap: var(--spacing-s);
+  justify-content: center;
+
+  @media (min-width: $breakpoint-m) {
+    justify-content: flex-start;
+    gap: 10px;
+  }
 
   li {
     a {
-      width: 40px;
-      height: 40px;
+      width: 35px;
+      height: 35px;
       display: flex;
       align-items: center;
       justify-content: center;
-      background-color: rgba(var(--white), 0.1);
-      border-radius: 50%;
-      color: var(--white);
-      font-size: 18px;
-      transition: all 0.3s ease-out 0s;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: var(--radius-full);
+      color: white;
+      font-size: var(--fs-base);
+      transition: var(--transition-fast);
+
+      @media (min-width: $breakpoint-m) {
+        width: 40px;
+        height: 40px;
+        font-size: var(--fs-nav-desktop);
+      }
 
       &:hover {
         background-color: var(--primary-color);
@@ -89,33 +130,56 @@
 }
 
 .footerWidget h3 {
-  font-size: 20px;
-  color: var(--white);
-  margin-bottom: 25px;
-  font-weight: 600;
+  font-size: var(--fs-h4);
+  color: white;
+  margin-bottom: var(--spacing-l);
+  font-weight: var(--fw-semibold);
+  text-align: center;
+
+  @media (min-width: $breakpoint-m) {
+    font-size: var(--fs-h5);
+    margin-bottom: 25px;
+    text-align: left;
+  }
 }
 
 .links {
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: center;
+
+  @media (min-width: $breakpoint-m) {
+    text-align: left;
+  }
 
   li {
-    margin-bottom: 12px;
+    margin-bottom: var(--spacing-s);
+
+    @media (min-width: $breakpoint-m) {
+      margin-bottom: 12px;
+    }
 
     &:last-child {
       margin-bottom: 0;
     }
 
     a {
-      font-size: 16px;
-      color: rgba(var(--white), 0.8);
+      font-size: var(--fs-description);
+      color: rgba(255, 255, 255, 0.8);
       text-decoration: none;
-      transition: all 0.3s ease-out 0s;
+      transition: var(--transition-fast);
+
+      @media (min-width: $breakpoint-m) {
+        font-size: var(--fs-base);
+      }
 
       &:hover {
         color: var(--primary-color);
-        padding-left: 5px;
+
+        @media (min-width: $breakpoint-m) {
+          padding-left: 5px;
+        }
       }
     }
   }
@@ -125,11 +189,21 @@
   list-style: none;
   margin: 0;
   padding: 0;
+  text-align: center;
+
+  @media (min-width: $breakpoint-m) {
+    text-align: left;
+  }
 
   li {
-    font-size: 16px;
-    color: rgba(var(--white), 0.8);
-    margin-bottom: 12px;
+    font-size: var(--fs-description);
+    color: rgba(255, 255, 255, 0.8);
+    margin-bottom: var(--spacing-s);
+
+    @media (min-width: $breakpoint-m) {
+      font-size: var(--fs-base);
+      margin-bottom: 12px;
+    }
 
     &:last-child {
       margin-bottom: 0;
@@ -139,10 +213,15 @@
 
 .contactMap {
   width: 100%;
-  height: 150px;
-  margin-top: 25px;
-  border-radius: 8px;
+  height: 120px;
+  margin-top: var(--spacing-l);
+  border-radius: var(--radius-s);
   overflow: hidden;
+
+  @media (min-width: $breakpoint-m) {
+    height: 150px;
+    margin-top: 25px;
+  }
 
   iframe {
     width: 100%;
@@ -153,28 +232,39 @@
 
 .mapFallback {
   width: 100%;
-  height: 150px;
-  background-color: rgba(var(--primary-color-rgb), 0.1);
-  border: 1px solid rgba(var(--primary-color-rgb), 0.2);
-  border-radius: 8px;
+  height: 120px;
+  background-color: rgba(78, 110, 241, 0.1);
+  border: 1px solid rgba(78, 110, 241, 0.2);
+  border-radius: var(--radius-s);
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 20px;
+  padding: var(--spacing-m);
+
+  @media (min-width: $breakpoint-m) {
+    height: 150px;
+    padding: var(--spacing-l);
+  }
 }
 
 .mapLink {
   display: inline-block;
-  margin-top: 10px;
-  padding: 8px 16px;
+  margin-top: var(--spacing-s);
+  padding: var(--spacing-s) var(--spacing-m);
   background-color: var(--primary-color);
-  color: var(--white);
+  color: white;
   text-decoration: none;
-  border-radius: 4px;
-  font-size: 14px;
-  transition: var(--transition-base);
+  border-radius: var(--radius-s);
+  font-size: var(--fs-description);
+  transition: var(--transition-fast);
+
+  @media (min-width: $breakpoint-m) {
+    margin-top: 10px;
+    padding: 8px 16px;
+    border-radius: 4px;
+  }
 
   &:hover {
     background-color: var(--text-color-default);
@@ -184,14 +274,21 @@
 
 .copyRight {
   border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding: 25px 0;
+  padding: var(--spacing-l) 0;
   text-align: center;
 
-  // header link component
+  @media (min-width: $breakpoint-m) {
+    padding: var(--spacing-xl) 0;
+  }
+
   p {
-    font-size: 16px;
-    color: rgba(var(--white), 0.8);
+    font-size: var(--fs-description);
+    color: rgba(255, 255, 255, 0.8);
     margin: 0;
+
+    @media (min-width: $breakpoint-m) {
+      font-size: var(--fs-base);
+    }
 
     a {
       color: var(--primary-color);
