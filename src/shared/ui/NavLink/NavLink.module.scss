@@ -35,4 +35,15 @@
   &.active::before {
     width: 100%;
   }
+
+  // Варіант для мобільного меню
+  &.mobile {
+    font-size: var(--fs-nav-mobile);
+    padding: var(--spacing-m) 0;
+    border-bottom: 1px solid var(--border-color);
+
+    &::before {
+      display: none;
+    }
+  }
 }

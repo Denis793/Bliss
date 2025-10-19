@@ -22,20 +22,6 @@
   padding: var(--spacing-xl) 0;
 }
 
-.logo {
-  display: inline-block;
-}
-
-.logoImage {
-  max-height: 45px;
-  width: auto;
-  display: block;
-
-  @media (min-width: $breakpoint-m) {
-    max-height: var(--header-logo-height);
-  }
-}
-
 .menuBarDesktop {
   display: none;
 

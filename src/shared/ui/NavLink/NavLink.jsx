@@ -1,8 +1,8 @@
 import clsx from 'clsx';
 import styles from './NavLink.module.scss';
 
-export const NavLink = ({ children, href, isActive, className, onClick, ...props }) => {
-  const linkClasses = clsx(styles.navLink, className, {
+export const NavLink = ({ children, href, isActive, className, onClick, variant, ...props }) => {
+  const linkClasses = clsx(styles.navLink, variant === 'mobile' && styles.mobile, className, {
     [styles.active]: isActive,
   });
 
