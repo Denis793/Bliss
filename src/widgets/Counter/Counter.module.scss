@@ -29,6 +29,14 @@
 .counterContent {
   width: 100%;
   order: 2;
+  & h2 {
+    font-size: var(--fs-base);
+    padding: var(--spacing-l);
+
+    @media (min-width: $breakpoint-m) {
+      font-size: var(--fs-lg);
+    }
+  }
 
   @media (min-width: $breakpoint-m) {
     flex: 0 0 50%;

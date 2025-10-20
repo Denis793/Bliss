@@ -26,8 +26,13 @@
 
 .servicesGrid {
   display: flex;
+  flex-direction: column;
   justify-content: space-between;
   gap: var(--gap-l);
+
+  @media (min-width: $breakpoint-m) {
+    flex-direction: row;
+  }
 }
 
 .singleService {

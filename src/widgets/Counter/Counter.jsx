@@ -55,7 +55,7 @@ export const Counter = () => {
                   <div className={`${styles.counterIcon} ${styles[counter.colorClass]}`}>{counter.icon}</div>
                   <div className={styles.counterContent}>
                     <h2>{startCounting ? <CountUp end={counter.end} duration={2} suffix={counter.suffix} /> : '0'}</h2>
-                    <span>{counter.label}</span>
+                    <h4>{counter.label}</h4>
                   </div>
                 </div>
               ))}

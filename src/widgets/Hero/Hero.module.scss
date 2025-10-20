@@ -21,9 +21,10 @@
   align-items: center;
   gap: var(--gap-2xl);
   padding: var(--gap-l) 0;
-  width: 50%;
+  width: 100%;
 
   @media (min-width: $breakpoint-m) {
+    width: 50%;
     align-items: start;
   }
 }
