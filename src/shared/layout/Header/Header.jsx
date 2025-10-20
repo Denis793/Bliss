@@ -1,5 +1,5 @@
-import { useState } from 'react';
 import clsx from 'clsx';
+import { useState } from 'react';
 import { Logo } from '@/shared/ui/Logo';
 import { NavLink } from '@/shared/ui/NavLink';
 import { MobileMenu } from '@/shared/ui/MobileMenu';
@@ -52,7 +52,7 @@ export const Header = () => {
             <div className={styles.menuBarDesktop}>
               <ul className={styles.navbarNavDesktop}>
                 {menuItems.map((item) => (
-                  <li key={item.id} className={styles.navItemDesktop}>
+                  <li className={styles.navItemDesktop} key={item.id}>
                     <NavLink
                       href={`#${item.id}`}
                       isActive={activeSection === item.id}

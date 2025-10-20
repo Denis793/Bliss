@@ -1,4 +1,3 @@
-import { Preloader } from '@/shared/ui/Preloader';
 import { Header } from '@/shared/layout/Header';
 import { Hero } from '@/widgets//Hero';
 import { ClientLogo } from '@/widgets/ClientLogo';
@@ -12,7 +11,6 @@ import { ScrollToTop } from '@/shared/ui/ScrollToTop';
 export const App = () => {
   return (
     <>
-      <Preloader />
       <Header />
       <Hero />
       <ClientLogo />

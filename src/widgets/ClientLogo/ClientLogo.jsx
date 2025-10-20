@@ -1,6 +1,8 @@
-import BrandGrays from '@/assets/img/client-logo/graygrids.svg';
-import BrandLine from '@/assets/img/client-logo/lineicons.svg';
+import clsx from 'clsx';
+import { useIntersectionAnimation } from '@/shared/hooks/useIntersectionAnimation';
 import BrandUiDeck from '@/assets/img/client-logo/uideck.svg';
+import BrandLine from '@/assets/img/client-logo/lineicons.svg';
+import BrandGrays from '@/assets/img/client-logo/graygrids.svg';
 import BrandPageBulb from '@/assets/img/client-logo/pagebulb.svg';
 import styles from './ClientLogo.module.scss';
 
@@ -13,9 +15,10 @@ const brandsList = [
 
 export const ClientLogo = () => {
   const animatedBrandsList = [...brandsList, ...brandsList];
+  const { isVisible, sectionRef } = useIntersectionAnimation();
 
   return (
-    <section className={styles.brandsSection}>
+    <section ref={sectionRef} className={clsx(styles.brandsSection, { fadeInUp: isVisible })}>
       <div className="container">
         <div className={styles.sliderTrackWrapper}>
           <div className={styles.sliderTrack}>

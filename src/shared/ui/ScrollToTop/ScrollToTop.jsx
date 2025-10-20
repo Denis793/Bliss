@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react';
 import clsx from 'clsx';
+import { useState, useEffect } from 'react';
 import { Button } from '@/shared/ui/Button';
 import styles from './ScrollToTop.module.scss';
 

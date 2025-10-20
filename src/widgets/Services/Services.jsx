@@ -1,41 +1,19 @@
+import clsx from 'clsx';
+import { services } from '@/shared/data/servicesData';
+import { useIntersectionAnimation } from '@/shared/hooks/useIntersectionAnimation';
 import styles from './Services.module.scss';
 
 export const Services = () => {
-  const services = [
-    {
-      icon: '◐',
-      title: 'UI/UX Design',
-      description: 'Professional user interface and user experience design for modern applications.',
-      colorClass: 'iconColor1',
-    },
-    {
-      icon: '⧉',
-      title: 'Web Development',
-      description: 'Responsive and modern web development using latest technologies.',
-      colorClass: 'iconColor2',
-    },
-    {
-      icon: '✦',
-      title: 'Graphics Design',
-      description: 'Creative graphic design solutions for all your branding needs.',
-      colorClass: 'iconColor3',
-    },
-    {
-      icon: '◈',
-      title: 'Digital Marketing',
-      description: 'Comprehensive digital marketing strategies to grow your business.',
-      colorClass: 'iconColor4',
-    },
-  ];
+  const { isVisible, sectionRef } = useIntersectionAnimation();
 
   return (
-    <section id="service" className={styles.serviceSection}>
+    <section ref={sectionRef} id="service" className={styles.serviceSection}>
       <div className="container">
         <div className={styles.serviceTitleWrapper}>
           <div className={styles.serviceTitleContent}>
             <div className={styles.sectionTitle}>
-              <h2>Our services</h2>
-              <p>
+              <h2 className={clsx({ fadeInUp: isVisible })}>Our services</h2>
+              <p className={clsx({ fadeInUp: isVisible })}>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore.
               </p>
             </div>
@@ -43,7 +21,7 @@ export const Services = () => {
         </div>
         <div className={styles.servicesGrid}>
           {services.map((service, index) => (
-            <div key={index} className={styles.singleService}>
+            <div className={clsx(styles.singleService, { fadeInUp: isVisible })} key={index}>
               <div className={`${styles.serviceIcon} ${styles[service.colorClass]}`}>{service.icon}</div>
               <div className={styles.serviceContent}>
                 <h4>{service.title}</h4>

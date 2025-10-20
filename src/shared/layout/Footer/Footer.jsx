@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
 import clsx from 'clsx';
-import styles from './Footer.module.scss';
+import React, { useState } from 'react';
+import { useIntersectionAnimation } from '@/shared/hooks/useIntersectionAnimation';
 import logoSrc from '@/assets/img/logo/logo.svg';
+import styles from './Footer.module.scss';
 
 export const Footer = () => {
   const [mapError, setMapError] = useState(false);
+  const { isVisible, sectionRef } = useIntersectionAnimation();
 
   const mapConfig = {
     embedUrl:
@@ -33,10 +35,10 @@ export const Footer = () => {
 
   return (
     <>
-      <footer className={styles.footer}>
+      <footer className={styles.footer} ref={sectionRef}>
         <div className="container">
           <div className={styles.widgetWrapper}>
-            <div className={`${styles.footerWidget} ${styles.logoWidget}`}>
+            <div className={clsx(styles.footerWidget, styles.logoWidget, { fadeInUp: isVisible })}>
               <div className={styles.logo}>
                 <a href="index.html">
                   <img src={logoSrc} alt="Logo" />
@@ -57,7 +59,7 @@ export const Footer = () => {
               </ul>
             </div>
 
-            <div className={`${styles.footerWidget} ${styles.linkWidget}`}>
+            <div className={clsx(styles.footerWidget, styles.linkWidget, { fadeInUp: isVisible })}>
               <h3>Link</h3>
               <ul className={styles.links}>
                 {navigationLinks.map((link, index) => (
@@ -70,7 +72,7 @@ export const Footer = () => {
               </ul>
             </div>
 
-            <div className={`${styles.footerWidget} ${styles.serviceWidget}`}>
+            <div className={clsx(styles.footerWidget, styles.serviceWidget, { fadeInUp: isVisible })}>
               <h3>Services</h3>
               <ul className={styles.links}>
                 {serviceLinks.map((service, index) => (
@@ -83,7 +85,7 @@ export const Footer = () => {
               </ul>
             </div>
 
-            <div className={styles.footerWidget}>
+            <div className={clsx(styles.footerWidget, { fadeInUp: isVisible })}>
               <h3>Contact</h3>
               <ul className={styles.contactList}>
                 <li>+003894372632</li>
@@ -104,7 +106,7 @@ export const Footer = () => {
                   <div className={styles.mapFallback}>
                     <p>Our Location:</p>
                     <p>{mapConfig.locationName}</p>
-                    <a href={mapConfig.directUrl} target="_blank" rel="noopener noreferrer" className={styles.mapLink}>
+                    <a className={styles.mapLink} href={mapConfig.directUrl} target="_blank" rel="noopener noreferrer">
                       Open in Google Maps
                     </a>
                   </div>

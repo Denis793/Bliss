@@ -41,7 +41,7 @@ export const Button = ({
   }
 
   return (
-    <button type={type} className={baseClasses} onClick={onClick} {...buttonProps}>
+    <button className={baseClasses} type={type} onClick={onClick} {...buttonProps}>
       {children}
     </button>
   );

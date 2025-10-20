@@ -20,17 +20,3 @@
   gap: var(--gap-2xl);
   text-align: center;
 }
-
-.sectionTitle {
-  h2 {
-    &.fadeInUp {
-      animation: fadeInUp 1s ease-out 0.2s both;
-    }
-  }
-
-  p {
-    &.fadeInUp {
-      animation: fadeInUp 1s ease-out 0.4s both;
-    }
-  }
-}

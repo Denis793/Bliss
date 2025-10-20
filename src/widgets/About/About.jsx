@@ -1,31 +1,33 @@
-import { useState } from 'react';
-import { accordionData } from '@/shared/data/accordionData';
-import { Button } from '@/shared/ui/Button';
 import clsx from 'clsx';
+import { useState } from 'react';
+import { Button } from '@/shared/ui/Button';
+import { accordionData } from '@/shared/data/accordionData';
+import { useIntersectionAnimation } from '@/shared/hooks/useIntersectionAnimation';
 import aboutImgSrc from '@/assets/img/about/about-img.svg';
 import plusIcon from '@/assets/img/about/plus.png';
 import styles from './About.module.scss';
 
 export const About = () => {
   const [activeAccordion, setActiveAccordion] = useState(0);
+  const { isVisible, sectionRef } = useIntersectionAnimation();
 
   const handleAccordionClick = (index) => {
     setActiveAccordion(activeAccordion === index ? null : index);
   };
 
   return (
-    <section id="about" className={styles.aboutSection}>
+    <section className={styles.aboutSection} ref={sectionRef} id="about">
       <div className="container">
         <div className={styles.aboutLayout}>
-          <div className={styles.aboutImageWrapper}>
-            <img src={aboutImgSrc} alt="About" className={styles.aboutImage} />
+          <div className={clsx(styles.aboutImageWrapper, { fadeInLeft: isVisible })}>
+            <img className={styles.aboutImage} src={aboutImgSrc} alt="About" />
           </div>
 
           <div className={styles.aboutContent}>
             <div className={styles.sectionTitle}>
-              <h2>Read more about our Digital Agency</h2>
+              <h2 className={clsx({ fadeInUp: isVisible })}>Read more about our Digital Agency</h2>
 
-              <p className="description">
+              <p className={clsx('description', { fadeInUp: isVisible })}>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr,sed diam nonumy eirmod tempor invidunt ut labore
                 et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.
               </p>
@@ -35,7 +37,7 @@ export const About = () => {
               {accordionData.map((item, index) => {
                 const isActive = activeAccordion === index;
                 return (
-                  <div key={index} className={styles.faqContainer}>
+                  <div className={clsx(styles.faqContainer, { fadeInUp: isVisible })} key={index}>
                     <button
                       className={clsx(styles.faqButton, { [styles.active]: isActive })}
                       type="button"
@@ -56,7 +58,12 @@ export const About = () => {
               })}
             </div>
 
-            <Button href="#" onClick={(e) => e.preventDefault()} variant="primary">
+            <Button
+              className={clsx({ fadeInUp: isVisible })}
+              href="#"
+              onClick={(e) => e.preventDefault()}
+              variant="primary"
+            >
               View More
             </Button>
           </div>

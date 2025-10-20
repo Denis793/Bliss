@@ -1,12 +1,13 @@
-import { useState, useEffect, useRef } from 'react';
+import clsx from 'clsx';
+import { useState } from 'react';
 import CountUp from 'react-countup';
-import styles from './Counter.module.scss';
+import { useIntersectionAnimation } from '@/shared/hooks/useIntersectionAnimation';
 import counterImgSrc from '@/assets/img/counter-up/counter-up-img.svg';
+import styles from './Counter.module.scss';
 
 export const Counter = () => {
-  const [isVisible, setIsVisible] = useState(false);
   const [startCounting, setStartCounting] = useState(false);
-  const sectionRef = useRef(null);
+  const { isVisible, sectionRef } = useIntersectionAnimation();
 
   const counters = [
     { icon: '♡', end: 3642, suffix: '', label: 'Happy client', colorClass: 'iconColor1' },
@@ -15,27 +16,9 @@ export const Counter = () => {
     { icon: '▲', end: 42, suffix: '', label: "Creative designer's", colorClass: 'iconColor4' },
   ];
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          setStartCounting(true);
-        }
-      },
-      { threshold: 0.3 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) {
-        observer.unobserve(sectionRef.current);
-      }
-    };
-  }, []);
+  if (isVisible && !startCounting) {
+    setStartCounting(true);
+  }
 
   return (
     <section ref={sectionRef} className={styles.counterUpSection}>
@@ -43,15 +26,15 @@ export const Counter = () => {
         <div className={styles.counterLayout}>
           <div className={styles.counterContent}>
             <div className={styles.sectionTitle}>
-              <h2 className={isVisible ? styles.fadeInUp : ''}>Why we are the best, Why you hire?</h2>
-              <p className={isVisible ? styles.fadeInUp : ''}>
+              <h2 className={clsx({ fadeInUp: isVisible })}>Why we are the best, Why you hire?</h2>
+              <p className={clsx({ fadeInUp: isVisible })}>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr,sed diam nonumy eirmod tempor invidunt ut labore
                 et dolore magna aliquyam erat.
               </p>
             </div>
             <div className={styles.counterWrapper}>
               {counters.map((counter, index) => (
-                <div key={index} className={styles.singleCounter}>
+                <div key={index} className={clsx(styles.singleCounter, { fadeInUp: isVisible })}>
                   <div className={`${styles.counterIcon} ${styles[counter.colorClass]}`}>{counter.icon}</div>
                   <div className={styles.counterContent}>
                     <h2>{startCounting ? <CountUp end={counter.end} duration={2} suffix={counter.suffix} /> : '0'}</h2>
@@ -62,7 +45,7 @@ export const Counter = () => {
             </div>
           </div>
           <div className={styles.counterImageWrapper}>
-            <img src={counterImgSrc} alt="Counter" className={styles.counterImage} />
+            <img className={styles.counterImage} src={counterImgSrc} alt="Counter" />
           </div>
         </div>
       </div>

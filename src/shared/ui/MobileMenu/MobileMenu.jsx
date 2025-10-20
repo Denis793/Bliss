@@ -1,26 +1,21 @@
-import { useEffect } from 'react';
 import clsx from 'clsx';
+import { useEffect } from 'react';
 import { NavLink } from '@/shared/ui/NavLink';
 import styles from './MobileMenu.module.scss';
 
 export const MobileMenu = ({ isMenuOpen, toggleMenu, closeMenu, menuItems }) => {
-  // Заборона скролу body при відкритому меню
   useEffect(() => {
     if (isMenuOpen) {
-      // Заборонити скрол
       document.body.style.overflow = 'hidden';
     } else {
-      // Відновити скрол
       document.body.style.overflow = 'unset';
     }
 
-    // Cleanup при демонтуванні компонента
     return () => {
       document.body.style.overflow = 'unset';
     };
   }, [isMenuOpen]);
 
-  // Закриття меню при натисканні Escape
   useEffect(() => {
     const handleEscape = (event) => {
       if (event.key === 'Escape' && isMenuOpen) {
@@ -49,7 +44,6 @@ export const MobileMenu = ({ isMenuOpen, toggleMenu, closeMenu, menuItems }) => 
         <span className={styles.togglerIcon}></span>
       </button>
 
-      {/* Overlay для закриття меню при кліку поза ним */}
       <div className={clsx(styles.overlay, isMenuOpen && styles.open)} onClick={closeMenu} aria-hidden="true" />
 
       <div className={clsx(styles.menuBar, isMenuOpen && styles.open)}>

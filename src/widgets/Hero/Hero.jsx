@@ -1,8 +1,8 @@
+import clsx from 'clsx';
 import { useEffect, useState } from 'react';
 import { Button } from '@/shared/ui/Button';
-import clsx from 'clsx';
-import styles from './Hero.module.scss';
 import heroImgSrc from '@/assets/img/hero/hero-img.svg';
+import styles from './Hero.module.scss';
 
 export const Hero = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -16,7 +16,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className={styles.heroSection}>
+    <section className={styles.heroSection} id="home">
       <div className="container">
         <div className={styles.heroLayout}>
           <div className={styles.heroContent}>
@@ -29,17 +29,17 @@ export const Hero = () => {
               footer credits.
             </p>
             <Button
-              href="#"
-              onClick={(e) => e.preventDefault()}
               className={clsx(styles.heroBtn, isVisible && 'fadeInUp')}
+              onClick={(e) => e.preventDefault()}
               variant="primary"
+              href="#"
             >
               Buy Now
             </Button>
           </div>
 
           <div className={clsx(styles.heroImageContent, isVisible && 'fadeInUp')}>
-            <img src={heroImgSrc} alt="Hero" className={styles.heroImage} />
+            <img className={styles.heroImage} src={heroImgSrc} alt="Hero" />
           </div>
         </div>
       </div>
