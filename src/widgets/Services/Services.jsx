@@ -3,25 +3,25 @@ import styles from './Services.module.scss';
 export const Services = () => {
   const services = [
     {
-      icon: 'lni lni-brush-alt',
+      icon: '◐',
       title: 'UI/UX Design',
       description: 'Professional user interface and user experience design for modern applications.',
       colorClass: 'iconColor1',
     },
     {
-      icon: 'lni lni-laptop-phone',
+      icon: '⧉',
       title: 'Web Development',
       description: 'Responsive and modern web development using latest technologies.',
       colorClass: 'iconColor2',
     },
     {
-      icon: 'lni lni-palette',
+      icon: '✦',
       title: 'Graphics Design',
       description: 'Creative graphic design solutions for all your branding needs.',
       colorClass: 'iconColor3',
     },
     {
-      icon: 'lni lni-bullhorn',
+      icon: '◈',
       title: 'Digital Marketing',
       description: 'Comprehensive digital marketing strategies to grow your business.',
       colorClass: 'iconColor4',
@@ -34,7 +34,7 @@ export const Services = () => {
         <div className={styles.serviceTitleWrapper}>
           <div className={styles.serviceTitleContent}>
             <div className={styles.sectionTitle}>
-              <h1>Our services</h1>
+              <h2>Our services</h2>
               <p>
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore.
               </p>
@@ -44,9 +44,7 @@ export const Services = () => {
         <div className={styles.servicesGrid}>
           {services.map((service, index) => (
             <div key={index} className={styles.singleService}>
-              <div className={`${styles.serviceIcon} ${styles[service.colorClass]}`}>
-                <i className={service.icon}></i>
-              </div>
+              <div className={`${styles.serviceIcon} ${styles[service.colorClass]}`}>{service.icon}</div>
               <div className={styles.serviceContent}>
                 <h4>{service.title}</h4>
                 <p>{service.description}</p>

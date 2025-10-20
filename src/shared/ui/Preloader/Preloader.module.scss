@@ -4,15 +4,16 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
+  width: 100vw;
+  height: 100vh;
   z-index: 9999;
   background: white;
-  display: flex;
+  display: flex !important;
   justify-content: center;
   align-items: center;
-  opacity: 1;
+  opacity: 1 !important;
   transition: opacity 0.4s ease-in-out;
+  visibility: visible;
 
   @media (min-width: $breakpoint-m) {
     transition: opacity 0.5s ease-in-out;
@@ -26,8 +27,17 @@
 
 .loader {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
+  gap: 20px;
+
+  h2 {
+    margin: 0;
+    color: #4e6ef1;
+    font-size: 1.5rem;
+    font-weight: 600;
+  }
 }
 
 .spinner {
@@ -41,21 +51,21 @@
   }
 }
 
-.spinner-container {
+.spinnerContainer {
   width: 100%;
   height: 100%;
   position: relative;
 }
 
-.spinner-rotator {
+.spinnerRotator {
   position: absolute;
   width: 100%;
   height: 100%;
-  animation: spinner-rotate 1s linear infinite;
+  animation: spinnerRotate 1s linear infinite;
 }
 
-.spinner-left,
-.spinner-right {
+.spinnerLeft,
+.spinnerRight {
   position: absolute;
   top: 0;
   width: 50%;
@@ -63,23 +73,23 @@
   overflow: hidden;
 }
 
-.spinner-left {
+.spinnerLeft {
   left: 0;
 }
 
-.spinner-right {
+.spinnerRight {
   right: 0;
 }
 
-.spinner-circle {
+.spinnerCircle {
   position: absolute;
   top: 0;
   width: 200%;
   height: 100%;
   border-radius: 40px;
   border: 2px solid transparent;
-  border-top-color: var(--primary-color);
-  border-bottom-color: var(--primary-color);
+  border-top-color: #4e6ef1;
+  border-bottom-color: #4e6ef1;
 
   @media (min-width: $breakpoint-m) {
     border-radius: 50px;
@@ -87,19 +97,19 @@
   }
 }
 
-.spinner-left .spinner-circle {
+.spinnerLeft .spinnerCircle {
   left: 0;
   right: -100%;
-  animation: spinner-left 1s ease-in-out infinite;
+  animation: spinnerLeft 1s ease-in-out infinite;
 }
 
-.spinner-right .spinner-circle {
+.spinnerRight .spinnerCircle {
   left: -100%;
   right: 0;
-  animation: spinner-right 1s ease-in-out infinite;
+  animation: spinnerRight 1s ease-in-out infinite;
 }
 
-@keyframes spinner-rotate {
+@keyframes spinnerRotate {
   0% {
     transform: rotate(0deg);
   }
@@ -108,7 +118,7 @@
   }
 }
 
-@keyframes spinner-left {
+@keyframes spinnerLeft {
   0%,
   50% {
     transform: rotate(0deg);
@@ -118,7 +128,7 @@
   }
 }
 
-@keyframes spinner-right {
+@keyframes spinnerRight {
   0% {
     transform: rotate(0deg);
   }

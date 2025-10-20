@@ -20,14 +20,17 @@ export const About = () => {
           <div className={styles.aboutImageWrapper}>
             <img src={aboutImgSrc} alt="About" className={styles.aboutImage} />
           </div>
+
           <div className={styles.aboutContent}>
             <div className={styles.sectionTitle}>
-              <h1>Read more about our Digital Agency</h1>
+              <h2>Read more about our Digital Agency</h2>
+
               <p className="description">
                 Lorem ipsum dolor sit amet, consetetur sadipscing elitr,sed diam nonumy eirmod tempor invidunt ut labore
                 et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores.
               </p>
             </div>
+
             <div className={styles.accordion}>
               {accordionData.map((item, index) => {
                 const isActive = activeAccordion === index;
@@ -52,6 +55,7 @@ export const About = () => {
                 );
               })}
             </div>
+
             <Button href="#" onClick={(e) => e.preventDefault()} variant="primary">
               View More
             </Button>

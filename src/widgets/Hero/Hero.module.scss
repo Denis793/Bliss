@@ -1,106 +1,46 @@
 @use '@/shared/styles/variables' as *;
-@use '@/shared/styles/mixins' as *;
 
 .heroSection {
   background: url('@/assets/img/hero/hero-bg.jpg');
-  padding: var(--spacing-3xl) 0 var(--spacing-2xl);
-  position: relative;
-  overflow: hidden;
+  padding: var(--spacing-3xl) 0;
 
   @media (min-width: $breakpoint-m) {
-    padding: var(--spacing-4xl) 0;
-  }
-
-  @media (min-width: $breakpoint-l) {
     padding: var(--spacing-4xl) 0;
   }
 }
 
 .heroLayout {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: var(--spacing-xl);
-  text-align: center;
-
-  @media (min-width: $breakpoint-m) {
-    flex-direction: row;
-    text-align: left;
-    gap: var(--spacing-2xl);
-  }
+  justify-content: center;
 }
 
 .heroContent {
-  width: 100%;
-  order: 2;
-
-  @media (min-width: $breakpoint-m) {
-    flex: 0 0 50%;
-    order: 1;
-  }
-}
-
-.heroImageWrapper {
-  width: 100%;
-  order: 1;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--gap-2xl);
+  padding: var(--gap-l) 0;
+  width: 50%;
 
   @media (min-width: $breakpoint-m) {
-    flex: 0 0 50%;
-    order: 2;
+    align-items: start;
   }
-}
-
-.heroImageContent {
-  width: 100%;
-  max-width: 280px;
-
-  @media (min-width: $breakpoint-m) {
-    max-width: 400px;
-  }
-
-  @media (min-width: $breakpoint-l) {
-    max-width: 500px;
-  }
-}
-
-.heroImage {
-  width: auto;
-  height: 100%;
-  display: block;
 }
 
 .welcomeText {
-  font-size: var(--fs-base);
-  font-weight: var(--fw-medium);
   color: var(--primary-color);
-  margin-bottom: var(--spacing-s);
-  display: block;
-
-  @media (min-width: $breakpoint-m) {
-    font-size: var(--fs-nav-laptop);
-    margin-bottom: var(--spacing-l);
-  }
-
-  @media (min-width: $breakpoint-l) {
-    font-size: var(--fs-nav-desktop);
-  }
 }
 
 .heroTitle {
-  font-size: var(--fs-h2);
-  line-height: 1.3;
-  color: var(--text-color-default);
-  margin-bottom: var(--spacing-l);
+  line-height: 1.2;
+}
+
+.heroImage {
+  display: none;
 
   @media (min-width: $breakpoint-m) {
-    font-size: var(--fs-h1);
-    line-height: 1.2;
-    margin-bottom: var(--spacing-xl);
-  }
-
-  @media (min-width: $breakpoint-l) {
-    font-size: var(--fs-h6);
+    display: flex;
+    max-width: 100%;
   }
 }

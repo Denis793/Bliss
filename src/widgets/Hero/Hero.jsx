@@ -20,7 +20,7 @@ export const Hero = () => {
       <div className="container">
         <div className={styles.heroLayout}>
           <div className={styles.heroContent}>
-            <span className={clsx(styles.welcomeText, isVisible && 'fadeInLeft')}>Welcome To Bliss</span>
+            <h3 className={clsx(styles.welcomeText, isVisible && 'fadeInLeft')}>Welcome To Bliss</h3>
             <h1 className={clsx(styles.heroTitle, isVisible && 'fadeInUp')}>
               You are using free lite version of Bliss.
             </h1>
@@ -37,10 +37,9 @@ export const Hero = () => {
               Buy Now
             </Button>
           </div>
-          <div className={styles.heroImageWrapper}>
-            <div className={clsx(styles.heroImageContent, isVisible && 'fadeInUp')}>
-              <img src={heroImgSrc} alt="Hero" className={styles.heroImage} />
-            </div>
+
+          <div className={clsx(styles.heroImageContent, isVisible && 'fadeInUp')}>
+            <img src={heroImgSrc} alt="Hero" className={styles.heroImage} />
           </div>
         </div>
       </div>

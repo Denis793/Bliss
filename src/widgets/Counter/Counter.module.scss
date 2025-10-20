@@ -21,7 +21,6 @@
 
   @media (min-width: $breakpoint-m) {
     flex-direction: row;
-    flex-wrap: wrap;
     text-align: left;
     gap: var(--spacing-2xl);
   }
@@ -71,7 +70,7 @@
     margin-bottom: 40px;
   }
 
-  h1 {
+  h2 {
     font-size: var(--fs-h3);
     line-height: 1.3;
     color: var(--text-color-default);
@@ -84,7 +83,7 @@
     }
 
     @media (min-width: $breakpoint-l) {
-      font-size: var(--fs-h1);
+      font-size: var(--fs-h2);
     }
 
     &.fadeInUp {
@@ -93,19 +92,6 @@
   }
 
   p {
-    font-size: var(--fs-base);
-    line-height: 1.6;
-    color: var(--text-color-description);
-
-    @media (min-width: $breakpoint-m) {
-      font-size: var(--fs-nav-laptop);
-      line-height: 1.7;
-    }
-
-    @media (min-width: $breakpoint-l) {
-      font-size: var(--fs-nav-desktop);
-    }
-
     &.fadeInUp {
       animation: fadeInUp 1s ease-out 0.4s both;
     }
@@ -125,6 +111,7 @@
 
 .singleCounter {
   display: flex;
+  flex-direction: column;
   align-items: center;
   padding: var(--spacing-s) 0;
   justify-content: center;
@@ -132,50 +119,52 @@
   @media (min-width: $breakpoint-m) {
     padding: var(--spacing-l) 0;
     justify-content: flex-start;
+    flex-direction: row;
   }
 }
 
 .counterIcon {
-  width: 50px;
-  height: 50px;
+  width: 7rem;
+  height: 7rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: var(--radius-full);
-  margin-right: var(--spacing-m);
-  font-size: var(--fs-h5);
+  font-size: 2.5rem;
+  font-family: 'Arial Unicode MS', 'Lucida Sans Unicode', sans-serif;
+  font-weight: normal;
   flex-shrink: 0;
 
   @media (min-width: $breakpoint-m) {
-    width: 60px;
-    height: 60px;
-    margin-right: var(--spacing-l);
-    font-size: var(--fs-h4);
+    margin-right: var(--spacing-m);
+    font-size: 3rem;
+    width: 8rem;
+    height: 8rem;
   }
 
   &.iconColor1 {
     background-color: var(--accent-color-1);
-    color: white;
+    color: var(--button-text-color);
   }
 
   &.iconColor2 {
     background-color: var(--accent-color-3);
-    color: white;
+    color: var(--button-text-color);
   }
 
   &.iconColor3 {
     background-color: var(--accent-color-2);
-    color: white;
+    color: var(--button-text-color);
   }
 
   &.iconColor4 {
     background-color: var(--accent-color-4);
-    color: white;
+    color: var(--button-text-color);
   }
 }
 
 .counterContent {
-  h1 {
+  h2 {
     font-size: var(--fs-h4);
     font-weight: var(--fw-bold);
     color: var(--text-color-default);
@@ -196,16 +185,5 @@
     @media (min-width: $breakpoint-m) {
       font-size: var(--fs-base);
     }
-  }
-}
-
-@keyframes fadeInUp {
-  0% {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
   }
 }

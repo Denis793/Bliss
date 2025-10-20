@@ -27,13 +27,3 @@
 .fadeInLeft {
   animation: fadeInLeft 0.6s ease-out forwards;
 }
-
-.fadeInUpDelay {
-  animation: fadeInUp 0.6s ease-out 0.2s forwards;
-  opacity: 0;
-}
-
-.fadeInLeftDelay {
-  animation: fadeInLeft 0.6s ease-out 0.2s forwards;
-  opacity: 0;
-}

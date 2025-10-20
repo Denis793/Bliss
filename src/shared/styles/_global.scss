@@ -33,6 +33,9 @@ a {
     outline: none;
     box-shadow: none;
   }
+  &:visited {
+    text-decoration: none;
+  }
 }
 
 i,
@@ -59,11 +62,37 @@ h6 {
   font-family: var(--ff-main);
   font-weight: 700;
   color: var(--text-color-default);
+  line-height: 1.2;
+}
+
+h1 {
+  font-size: var(--fs-h1);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+}
+
+h4 {
+  font-size: var(--fs-h4);
+}
+
+h5 {
+  font-size: var(--fs-h5);
+}
+
+h6 {
+  font-size: var(--fs-h6);
 }
 
 p {
   line-height: 1.7;
   color: var(--text-color-description);
+  padding: var(--spacing-2xl) 0;
 }
 
 input,
@@ -89,4 +118,9 @@ button {
   @media (min-width: $breakpoint-l) {
     max-width: var(--container-max-width);
   }
+}
+
+ul,
+li {
+  list-style: none;
 }

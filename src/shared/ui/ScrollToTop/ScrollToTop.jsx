@@ -1,4 +1,6 @@
 import { useState, useEffect } from 'react';
+import clsx from 'clsx';
+import { Button } from '@/shared/ui/Button';
 import styles from './ScrollToTop.module.scss';
 
 export const ScrollToTop = () => {
@@ -25,17 +27,13 @@ export const ScrollToTop = () => {
   };
 
   return (
-    <>
-      <a
-        href="#"
-        className={`${styles.scrollTop} ${isVisible ? styles.visible : ''}`}
-        onClick={(e) => {
-          e.preventDefault();
-          scrollToTop();
-        }}
-      >
-        <i className="lni lni-chevron-up"></i>
-      </a>
-    </>
+    <Button
+      className={clsx(styles.scrollTop, { [styles.visible]: isVisible })}
+      onClick={scrollToTop}
+      type="button"
+      aria-label="Scroll to top"
+    >
+      ^
+    </Button>
   );
 };

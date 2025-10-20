@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import clsx from 'clsx';
 import styles from './Footer.module.scss';
 import logoSrc from '@/assets/img/logo/logo.svg';
 
@@ -41,7 +42,7 @@ export const Footer = () => {
                   <img src={logoSrc} alt="Logo" />
                 </a>
               </div>
-              <p className={styles.desc}>
+              <p className="description">
                 We are expert designer team, There have a lot of designer and developer If you have any project you can
                 hire Create a website.
               </p>
@@ -82,7 +83,7 @@ export const Footer = () => {
               </ul>
             </div>
 
-            <div className={`${styles.footerWidget} ${styles.contactWidget}`}>
+            <div className={styles.footerWidget}>
               <h3>Contact</h3>
               <ul className={styles.contactList}>
                 <li>+003894372632</li>
@@ -93,9 +94,6 @@ export const Footer = () => {
                 {!mapError ? (
                   <iframe
                     src={mapConfig.embedUrl}
-                    width="100%"
-                    height="150"
-                    style={{ border: 0 }}
                     allowFullScreen=""
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"

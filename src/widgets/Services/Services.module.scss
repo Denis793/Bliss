@@ -2,26 +2,21 @@
 
 .serviceSection {
   padding: var(--spacing-2xl) 0;
-  margin-top: 60px;
   background-image: url('@/assets/img/service/service-bg.jpg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 
   @media (min-width: $breakpoint-m) {
-    padding: var(--spacing-3xl) 0;
-    margin-top: 100px;
-  }
-
-  @media (min-width: $breakpoint-l) {
     padding: var(--spacing-4xl) 0;
-    margin-top: 150px;
   }
 }
 
 .serviceTitleWrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
+  text-align: center;
   margin-bottom: var(--spacing-l);
 
   @media (min-width: $breakpoint-m) {
@@ -29,50 +24,19 @@
   }
 }
 
-.serviceTitleContent {
-  max-width: 320px;
-  text-align: center;
-
-  @media (min-width: $breakpoint-m) {
-    max-width: 500px;
-  }
-
-  @media (min-width: $breakpoint-l) {
-    max-width: 600px;
-  }
-}
-
 .servicesGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--spacing-l);
-
-  @media (min-width: $breakpoint-m) {
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--spacing-xl);
-  }
-
-  @media (min-width: $breakpoint-l) {
-    grid-template-columns: repeat(4, 1fr);
-    gap: var(--spacing-lg);
-  }
+  display: flex;
+  justify-content: space-between;
+  gap: var(--gap-l);
 }
 
 .singleService {
   text-align: center;
-  padding: var(--spacing-l) var(--spacing-m);
-  background: white;
+  background: var(--bg-card);
+  padding: var(--spacing-2xl);
   border-radius: var(--radius-s);
   box-shadow: var(--shadow-main);
   transition: var(--transition-fast);
-
-  @media (min-width: $breakpoint-m) {
-    padding: var(--spacing-xl) var(--spacing-l);
-  }
-
-  @media (min-width: $breakpoint-l) {
-    padding: var(--spacing-2xl) var(--spacing-lg);
-  }
 
   &:hover {
     transform: translateY(-5px);
@@ -84,44 +48,37 @@
   }
 }
 
+.serviceContent h4 {
+  padding-top: var(--spacing-l);
+}
+
 .serviceIcon {
-  width: 60px;
-  height: 60px;
+  width: 6rem;
+  height: 6rem;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: var(--radius-full);
-  margin: 0 auto var(--spacing-l);
-  font-size: 24px;
-
-  @media (min-width: $breakpoint-m) {
-    width: 70px;
-    height: 70px;
-    margin: 0 auto 25px;
-    font-size: 28px;
-  }
-
-  @media (min-width: $breakpoint-l) {
-    font-size: 32px;
-  }
+  margin: var(--spacing-l) auto;
+  font-size: 2rem;
 
   &.iconColor1 {
     background-color: var(--accent-color-1);
-    color: white;
+    color: var(--button-text-color);
   }
 
   &.iconColor2 {
     background-color: var(--accent-color-3);
-    color: white;
+    color: var(--button-text-color);
   }
 
   &.iconColor3 {
     background-color: var(--accent-color-2);
-    color: white;
+    color: var(--button-text-color);
   }
 
   &.iconColor4 {
     background-color: var(--accent-color-4);
-    color: white;
+    color: var(--button-text-color);
   }
 }

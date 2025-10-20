@@ -9,7 +9,7 @@
   user-select: none;
   border: 2px solid transparent;
   padding: var(--spacing-m) var(--spacing-xl);
-  font-size: var(--fs-description);
+  font-size: var(--fs-h4);
   line-height: 1.4;
   border-radius: var(--radius-m);
   transition: var(--transition-fast);
@@ -30,9 +30,10 @@
     color: var(--button-text-color);
     border-color: var(--primary-color);
 
-    &:hover {
+    &:hover,
+    &:active {
       color: var(--button-text-hover);
-      background: transparent;
+      background: var(--button-text-color);
       border-color: var(--primary-color);
       transform: translateY(-1px);
       box-shadow: var(--shadow-main);

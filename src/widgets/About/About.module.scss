@@ -1,5 +1,4 @@
 @use '@/shared/styles/variables' as *;
-@use '@/shared/styles/mixins' as *;
 
 .aboutSection {
   padding: var(--spacing-2xl) 0;
@@ -7,6 +6,11 @@
   @media (min-width: $breakpoint-m) {
     padding: var(--spacing-3xl) 0;
   }
+}
+
+.sectionTitle {
+  display: flex;
+  flex-direction: column;
 }
 
 .aboutLayout {
@@ -24,13 +28,11 @@
 
 .aboutImageWrapper {
   width: 100%;
-  order: 1;
   display: flex;
   justify-content: center;
 
   @media (min-width: $breakpoint-m) {
-    flex: 0 0 50%;
-    order: 1;
+    width: 50;
   }
 }
 
@@ -42,28 +44,22 @@
 
 .aboutContent {
   width: 100%;
-  order: 2;
-
-  @media (min-width: $breakpoint-m) {
-    flex: 0 0 50%;
-    order: 2;
-  }
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: start;
 }
 
 .accordion {
-  padding-bottom: var(--spacing-m);
+  display: flex;
+  flex-direction: column;
 }
 
 .faqContainer {
-  margin-bottom: var(--spacing-m);
+  margin: var(--spacing-s);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-s);
-  overflow: hidden;
   transition: border-color var(--transition-base), box-shadow var(--transition-base);
-
-  &:last-child {
-    margin-bottom: 0;
-  }
 
   &:hover {
     border-color: var(--primary-color);
@@ -89,12 +85,10 @@
 
   &:hover {
     color: var(--primary-color);
-    background-color: rgba(78, 110, 241, 0.05);
   }
 
   &.active {
     color: var(--primary-color);
-    background-color: rgba(78, 110, 241, 0.08);
 
     .faqIcon {
       transform: rotate(45deg);
@@ -104,11 +98,6 @@
   &.active:hover .faqIcon {
     transform: rotate(45deg);
   }
-}
-
-.faqButtonText {
-  flex: 1;
-  text-align: left;
 }
 
 .faqIcon {
@@ -137,12 +126,12 @@
 
   &.show {
     max-height: 300px;
-    padding: var(--spacing-m) var(--spacing-l);
+    padding: 0 var(--spacing-l);
     opacity: 1;
 
     @media (min-width: $breakpoint-m) {
       max-height: 200px;
-      padding: var(--spacing-l) 25px;
+      padding: 0 var(--spacing-2xl);
     }
   }
 }
