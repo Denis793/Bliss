@@ -7,7 +7,7 @@ Modern, responsive landing page template for digital agencies, creative studios,
 ## 📸 Preview
 
 <p align="center">
-  <a href="#" target="_blank">
+  <a href="https://bliss-black.vercel.app/" target="_blank">
     <img src="https://img.shields.io/badge/View%20Live%20Demo-Coming%20Soon-blue?style=for-the-badge" alt="View Project">
   </a>
 </p>
